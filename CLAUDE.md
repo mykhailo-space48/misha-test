@@ -1,0 +1,1 @@
+/Users/misha_aleksieienko/Projects/shopify-app/misha-theme/AGENTS.md
