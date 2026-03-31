@@ -1,11 +1,16 @@
 document.getElementById('clear-cart-btn')?.addEventListener('click', async function () {
-    if (!confirm('Are you sure you want to remove all items?')) {
+    const confirmMessage = this.dataset.confirmMessage || 'Are you sure?';
+    const clearingText = this.dataset.clearingText || 'Clearing...';
+    const clearText = this.dataset.clearText || 'Clear Cart';
+    const errorText = this.dataset.errorText || 'Error clearing cart';
+
+    if (!confirm(confirmMessage)) {
         return;
     }
 
     const btn = this;
     btn.disabled = true;
-    btn.textContent = 'Clearing...';
+    btn.textContent = clearingText;
 
     try {
         await fetch(window.Shopify.routes.root + 'cart/clear.js', {
@@ -24,8 +29,8 @@ document.getElementById('clear-cart-btn')?.addEventListener('click', async funct
         btn.parentElement.remove();
 
     } catch (error) {
-        alert('Error clearing cart');
+        console.error(errorText);
         btn.disabled = false;
-        btn.textContent = 'Clear Cart';
+        btn.textContent = clearText;
     }
 });

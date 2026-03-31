@@ -17,8 +17,6 @@
   }
 {%- endstyle -%}
 
-<script src="{{ 'cart-clear-all.js' | asset_url }}" defer="defer"></script>
-
 <div
   class="gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %}"
   id="main-cart-footer"
@@ -129,13 +127,7 @@
           {%- endcase -%}
         {% endfor %}
 
-        {% unless cart.empty? %}
-          <div style="margin-top: 1rem;">
-            <button type="button" class="button button--secondary" id="clear-cart-btn">
-              Clear Cart
-            </button>
-          </div>
-        {% endunless %}
+        {% render 'cart-clear-button' %}
 
         <div id="cart-errors"></div>
       </div>
