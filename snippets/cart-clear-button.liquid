@@ -1,0 +1,20 @@
+{% doc %}
+  Renders a clear cart button that appears only when the cart has items.
+{% enddoc %}
+
+{% unless cart.empty? %}
+  <div class="clear-cart-wrapper">
+    <button
+      type="button"
+      class="button button--secondary"
+      id="clear-cart-btn"
+      data-clearing-text="{{ 'sections.cart.clearing' | t }}"
+      data-clear-text="{{ 'sections.cart.clear_cart' | t }}"
+      data-confirm-message="{{ 'sections.cart.confirm_clear' | t }}"
+      data-error-text="{{ 'sections.cart.clear_error' | t }}"
+    >
+      {{ 'sections.cart.clear_cart' | t }}
+    </button>
+  </div>
+  <script src="{{ 'cart-clear-all.js' | asset_url }}" defer="defer"></script>
+{% endunless %}
