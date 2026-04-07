@@ -125,6 +125,8 @@
       "inventory_low_stock_show_count": "Low stock: {{ quantity }} left",
       "inventory_out_of_stock": "Out of stock",
       "inventory_out_of_stock_continue_selling": "In stock",
+      "out_of_stock_message": "This item is currently out of stock. Enter your email to be notified when it's back in stock.",
+      "notify_me": "Notify me",
       "sku": "SKU",
       "on_sale": "Sale",
       "product_variants": "Product variants",

@@ -1,0 +1,57 @@
+{% doc %}
+  Renders a global out-of-stock notify modal near the footer.
+
+  @example
+  {% render 'out-of-stock-notify-modal' %}
+{% enddoc %}
+
+<details-modal class="out-of-stock-notify-modal">
+  <details id="OutOfStockGlobalModal" class="out-of-stock-modal">
+    <summary class="out-of-stock-modal__toggle">
+      {{ 'products.product.notify_me' | t }}
+    </summary>
+    <div class="out-of-stock-modal__overlay"></div>
+    <div
+      class="out-of-stock-modal__dialog"
+      role="dialog"
+      aria-label="{{ 'products.product.out_of_stock' | t }}"
+      aria-modal="true"
+      tabindex="-1"
+    >
+      <button
+        type="button"
+        class="out-of-stock-modal__close"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        {{ 'icon-close.svg' | inline_asset_content }}
+      </button>
+
+      <div class="out-of-stock-modal__content">
+        <h2 class="out-of-stock-modal__title">{{ 'products.product.inventory_out_of_stock' | t }}</h2>
+        <p class="out-of-stock-modal__message">{{ 'products.product.out_of_stock_message' | t }}</p>
+
+        {%- form 'customer' -%}
+          <input
+            type="hidden"
+            name="contact[body]"
+            value="Please notify me when this product is back in stock"
+            data-notify-body
+          >
+          <div class="form__group">
+            <input
+              type="email"
+              class="form__input"
+              name="contact[email]"
+              aria-label="{{ 'general.email' | t }}"
+              placeholder="{{ 'general.email' | t }}"
+              required
+            >
+          </div>
+          <button type="submit" class="button button--primary out-of-stock-modal__submit">
+            {{ 'products.product.notify_me' | t }}
+          </button>
+        {%- endform -%}
+      </div>
+    </div>
+  </details>
+</details-modal>

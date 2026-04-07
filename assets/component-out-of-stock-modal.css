@@ -1,0 +1,89 @@
+.out-of-stock-modal {
+  all: unset;
+}
+
+.out-of-stock-modal__toggle {
+  display: none;
+}
+
+.product-form__buttons--sold-out .shopify-payment-button {
+  display: none;
+}
+
+.out-of-stock-modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: none;
+}
+
+.out-of-stock-modal[open] .out-of-stock-modal__overlay {
+  display: block;
+}
+
+.out-of-stock-modal__dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  z-index: 1001;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.out-of-stock-modal[open] .out-of-stock-modal__dialog {
+  display: block;
+}
+
+.out-of-stock-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.out-of-stock-modal__close:hover {
+  opacity: 0.7;
+}
+
+.out-of-stock-modal__title {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.out-of-stock-modal__message {
+  margin: 0 0 1.5rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.out-of-stock-modal__submit {
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .out-of-stock-modal__dialog {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  .out-of-stock-modal__title {
+    font-size: 1.25rem;
+  }
+}
